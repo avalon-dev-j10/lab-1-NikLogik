@@ -10,7 +10,6 @@ public class Main {
         /*
          * FIXME(Студент): Измените определение метода так, чтобы он стал точкой входа в приложение.
          */
-        
         Person ivanov = new Person();
         Person smith = new Person();
         
