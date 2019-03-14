@@ -14,8 +14,69 @@ package ru.avalon.java.dev.j10.labs.models;
  *  <li> дату выдачи;
  *  <li> орган, выдавший документ.
  * </ol>
- */
-class Passport {
+*/
+public class Passport {
+    
+    private int passport;       //номер пасспорта
+    private String name;        //имя
+    private String surName;     //фамилия
+    private String fatherName;  //отчетство
+    private String lastName;    //второе имя
+    private int birthDay;       //день рождения
+    private int passDate;       //дата выдачи
+    private String police;      //кем выдан
+    
+    public Passport(){
+        
+    }
+    
+    public Passport(String name, String surName, String fatherName){
+        this.name = name;
+        this.surName = surName;
+        this.fatherName = fatherName;
+    }
+    
+    public Passport(String name, String surName, String fatherName, String lastName){
+        this(name, surName, fatherName);
+        this.lastName = lastName;
+    }
+    
+    public String setName(String name){
+        this.name = name;
+        return this.name;
+    }
+    
+    public String setSurName(String surName){
+        this.surName = surName;
+        return this.surName;
+    }
+    
+    public String setFatherName(String fatherName){
+        this.fatherName = fatherName;
+        return this.fatherName;
+    }
+    
+    public String setLastName(String lastName){
+        this.lastName = lastName;
+        return this.lastName;
+    }
+    
+    public String getName(){
+        return name;
+    }
+    
+    public String getSurName(){
+        return surName;
+    }
+    
+    public String getFatherName(){
+        return fatherName;
+    }
+    
+    public String getLastName(){
+        return lastName;
+    }
+    
 
     /*
      * TODO(Студент): Закончить определение класса.

@@ -1,17 +1,34 @@
 package ru.avalon.java.dev.j10.labs;
 
 import ru.avalon.java.dev.j10.labs.models.Person;
+import ru.avalon.java.dev.j10.labs.commons.Address;
 
 public class Main {
 
-    Main() {
+    public static void main(String[] args) {
 
         /*
          * FIXME(Студент): Измените определение метода так, чтобы он стал точкой входа в приложение.
          */
-
-        Person ivanov = null;
-        Person smith = null;
+        
+        Person ivanov = new Person();
+        Person smith = new Person();
+        
+        ivanov.initializePassport("Иван", "Иванов", "Иванович");
+        smith.initializePassport("John", "Smith", "", "E.");
+        
+        ivanov.initializeAddress("Saint-Petersburg");
+        smith.initializeAddress("New-York");
+        
+        System.out.println(ivanov.getFullName());
+        System.out.println(smith.getFullName());
+        System.out.println(ivanov.getAddress());
+        System.out.println(smith.getAddress());
+        
+        
+    }
+        
+        
 
         /*
          * TODO(Студент): Создайте экземпляры класса 'Person'
@@ -51,5 +68,4 @@ public class Main {
          * Значение каждой переменной должно быть выведено на
          * отдельной строке.
          */
-    }
 }

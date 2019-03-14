@@ -1,4 +1,5 @@
 package ru.avalon.java.dev.j10.labs.models;
+import ru.avalon.java.dev.j10.labs.commons.Address;
 
 /**
  * Представление о человеке.
@@ -12,7 +13,38 @@ package ru.avalon.java.dev.j10.labs.models;
  * </ol>
  */
 public class Person {
-
+    
+    private String fullName;        //полное имя
+    private String address;         //адрес проживания
+    
+    Passport man;
+    Address post;
+    
+    public Person(){
+        man = new Passport();
+        post = new Address();
+    }
+    
+    public void initializePassport(String name, String surName, String fatherName){
+        man.setName(name);
+        man.setSurName(surName);
+        man.setFatherName(fatherName);
+    }
+    
+    
+    public void initializePassport(String name, String surName, String fatherName, String lastName){
+        man.setName(name);
+        man.setSurName(surName);
+        man.setFatherName(fatherName);
+        man.setLastName(lastName);
+    }
+    
+    public void initializeAddress(String address){
+        post.setAddress(address);
+    }
+    
+    
+    
     /*
      * TODO(Студент): Создайте класс Address.
      *
@@ -28,7 +60,7 @@ public class Person {
      * 4. Подумайте над тем, какие методы должны быть объявлены
      *    в классе.
      */
-
+    
     /**
      * Возврвщает полное имя человека.
      * <p>
@@ -50,7 +82,18 @@ public class Person {
         /*
          * TODO(Студент): Закончить определение метода 'getFullName()' класса 'Person'
          */
-        return null;
+        fullName = "";
+        if(man.getFatherName()=="" && man.getLastName()==""){
+            fullName = man.getName() + " " + man.getSurName();
+        }
+        else if (man.getFatherName()!=null && !man.getFatherName().equals("")) {
+            fullName = man.getName() + " " + man.getSurName() + " " + man.getFatherName();
+        }
+        else if(man.getLastName()!=null && !man.getLastName().equals("")){
+            fullName = man.getName() + " " + man.getLastName() + " " + man.getSurName();
+        }
+        
+        return fullName;
     }
 
     /**
@@ -65,6 +108,8 @@ public class Person {
         /*
          * TODO(Студент): Закончить определение метода 'getAddress()' класса 'Person'
          */
-        return null;
+        address = post.getAddress();
+        
+        return address;
     }
 }
