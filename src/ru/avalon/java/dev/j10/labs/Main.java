@@ -14,7 +14,7 @@ public class Main {
         Person smith = new Person();
         
         ivanov.initializePassport("Иван", "Иванов", "Иванович");
-        smith.initializePassport("John", "Smith", "", "E.");
+        smith.initializePassport("John", "Smith", "", "Edward");
         
         ivanov.initializeAddress("Saint-Petersburg");
         smith.initializeAddress("New-York");

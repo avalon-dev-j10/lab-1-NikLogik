@@ -90,7 +90,7 @@ public class Person {
             fullName = man.getName() + " " + man.getSurName() + " " + man.getFatherName();
         }
         else if(man.getLastName()!=null && !man.getLastName().equals("")){
-            fullName = man.getName() + " " + man.getLastName() + " " + man.getSurName();
+            fullName = man.getName() + " " + man.getLastName() + ". " + man.getSurName();
         }
         
         return fullName;

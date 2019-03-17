@@ -70,11 +70,13 @@ public class Passport {
     }
     
     public String getFatherName(){
+        
         return fatherName;
     }
     
     public String getLastName(){
-        return lastName;
+        
+        return lastName.substring(0, 1);
     }
     
 
