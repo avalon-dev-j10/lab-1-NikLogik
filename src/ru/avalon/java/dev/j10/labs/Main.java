@@ -1,17 +1,55 @@
 package ru.avalon.java.dev.j10.labs;
 
 import ru.avalon.java.dev.j10.labs.models.Person;
+import ru.avalon.java.dev.j10.labs.commons.Address;
+import ru.avalon.java.dev.j10.labs.models.Passport;
 
 public class Main {
 
-    Main() {
+    public static void main(String[] args) {
 
         /*
          * FIXME(Студент): Измените определение метода так, чтобы он стал точкой входа в приложение.
          */
-
         Person ivanov = null;
         Person smith = null;
+        
+        Passport ivanovPass = new Passport("Иван", "Иванов", "Иванович");
+        Passport smithPass = new Passport("Jhon", "Smith", "", "Edvard");
+        Passport myPass = new Passport("Nikita", "Antonov");
+        
+        
+        Address ivanovAdd = new Address("Санкт-Петербург", "Московский пр.", 22, 51);
+        Address smithAdd = new Address("New-York", "2nd street", 3290);
+        Address myAdd = new Address();
+        
+        ivanov = new Person(ivanovPass, ivanovAdd);
+        smith = new Person(smithPass, smithAdd);
+        
+        Person myPerson = new Person(myPass, myAdd);            //вызов конструктора только с именем и фамилией, без адреса
+        Person nullPerson = new Person();                       //вызов конструкторов Person и Address при незаданных полях классов
+        
+        /* TODO (Проверка №1) Поля класса необходимо инициализировать сразу в
+            конструкторе, переделать.
+        
+            Возникает ошибка при вводе только имени и фамилии.  ИСПРАВИТЬ!!!
+            Проверить все варианты возврата на выполнение!
+        */
+        System.out.println(ivanov.getFullName());
+        System.out.println(smith.getFullName());
+        System.out.println(ivanov.getAddress());
+        System.out.println(smith.getAddress());
+        
+        
+        System.out.println(myPerson.getFullName());
+        System.out.println(myPerson.getAddress());
+        System.out.println(nullPerson.getFullName());
+        System.out.println(nullPerson.getAddress());
+        
+        
+    }
+        
+        
 
         /*
          * TODO(Студент): Создайте экземпляры класса 'Person'
@@ -51,5 +89,4 @@ public class Main {
          * Значение каждой переменной должно быть выведено на
          * отдельной строке.
          */
-    }
 }
