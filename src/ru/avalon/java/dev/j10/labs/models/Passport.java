@@ -27,19 +27,39 @@ public class Passport {
     private String police;      //кем выдан
     
     public Passport(){
-        
+        this.name = "Безымянный";
+        this.police= "без документов";
     }
     
+    //конструктор для создания объекта, имеющего только имя и фамилию
+    public Passport(String name, String surName) {
+        this.name = name;
+        this.surName = surName;
+    }
+    
+    //конструктор для создания объекта, имеющего имя, фамилию, отчество
     public Passport(String name, String surName, String fatherName){
         this.name = name;
         this.surName = surName;
         this.fatherName = fatherName;
     }
     
+    
     public Passport(String name, String surName, String fatherName, String lastName){
         this(name, surName, fatherName);
         this.lastName = lastName;
     }
+    
+    //конструктор, инициализирующий все поля
+    public Passport(int passport, String name, String surName, String fatherName, String lastName, int birthDay, int passDate, String police) {
+        this(name, surName, fatherName, lastName);
+        this.passport = passport;
+        this.birthDay = birthDay;
+        this.passDate = passDate;
+        this.police = police;
+    }
+    
+    
     
     /* TODO (Проверка №1) Большинство полей класса не используются, но они 
         все равно должны быть инициализированы в конструкторе.
@@ -47,46 +67,40 @@ public class Passport {
         Создать конструктор с полным набором полей, и все остальные 
         конструкторы реализовать через него
     */
-    
-    public String setName(String name){
-        this.name = name;
-        return this.name;
+
+    public int getPassport() {
+        return passport;
     }
-    
-    public String setSurName(String surName){
-        this.surName = surName;
-        return this.surName;
-    }
-    
-    public String setFatherName(String fatherName){
-        this.fatherName = fatherName;
-        return this.fatherName;
-    }
-    
-    public String setLastName(String lastName){
-        this.lastName = lastName;
-        return this.lastName;
-    }
-    
-    /* TODO (Проверка №1) Сделать сетеры стандартного вида
-     */
-    
-    public String getName(){
+
+    public String getName() {
         return name;
     }
-    
-    public String getSurName(){
+
+
+    public String getSurName() {
         return surName;
     }
-    
-    public String getFatherName(){
-        
+
+    public String getFatherName() {
         return fatherName;
     }
-    
-    public String getLastName(){
-        
-        return lastName.substring(0, 1);
+
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public int getBirthDay() {
+        return birthDay;
+    }
+
+
+    public int getPassDate() {
+        return passDate;
+    }
+
+    public String getPolice() {
+        return police;
     }
     
     /* TODO (Проверка №1) гетер getLastName должен возвращать второе имя целиком

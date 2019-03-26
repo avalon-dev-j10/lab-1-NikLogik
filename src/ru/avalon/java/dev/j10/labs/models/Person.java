@@ -17,8 +17,9 @@ public class Person {
     private String fullName;        //полное имя
     private String address;         //адрес проживания
     
-    Passport man;
-    Address post;
+    private Passport man;           //ссылка на объект типа Паспорт
+    private Address post;           //ссылка на объект типа Адрес
+    
     
     /*
         Сделать инкапсуляцию всех полей класса. Добавить комментарии полям и методам.
@@ -27,23 +28,10 @@ public class Person {
         man = new Passport();
         post = new Address();
     }
-    
-    public void initializePassport(String name, String surName, String fatherName){
-        man.setName(name);
-        man.setSurName(surName);
-        man.setFatherName(fatherName);
-    }
-    
-    
-    public void initializePassport(String name, String surName, String fatherName, String lastName){
-        man.setName(name);
-        man.setSurName(surName);
-        man.setFatherName(fatherName);
-        man.setLastName(lastName);
-    }
-    
-    public void initializeAddress(String address){
-        post.setAddress(address);
+
+    public Person(Passport man, Address post) {
+        this.man = man;
+        this.post = post;
     }
     
     /*
@@ -90,16 +78,17 @@ public class Person {
          * TODO(Студент): Закончить определение метода 'getFullName()' класса 'Person'
          */
         fullName = "";
-        if(man.getFatherName()=="" && man.getLastName()==""){
+        if(man.getSurName()==null && man.getLastName()==null && man.getFatherName()==null){
+            fullName = man.getName() + ", " + man.getPolice();
+        }else if(man.getFatherName()==null && man.getLastName()==null || man.getFatherName()=="" && man.getLastName()==""){
             fullName = man.getName() + " " + man.getSurName();
         }
         else if (man.getFatherName()!=null && !man.getFatherName().equals("")) {
             fullName = man.getName() + " " + man.getSurName() + " " + man.getFatherName();
         }
         else if(man.getLastName()!=null && !man.getLastName().equals("")){
-            fullName = man.getName() + " " + man.getLastName() + ". " + man.getSurName();
+            fullName = man.getName() + " " + man.getLastName().substring(0, 1) + ". " + man.getSurName();
         }
-        
         return fullName;
     }
 
@@ -115,7 +104,15 @@ public class Person {
         /*
          * TODO(Студент): Закончить определение метода 'getAddress()' класса 'Person'
          */
-        address = post.getAddress();
+        address = "";
+        if(post.getStreet()==null && post.getStreet()=="" && post.getHouse()==0 && post.getAppartment()==0){
+            address = "Город: " + post.getCity();
+        }else if(post.getAppartment()==0 && post.getHouse()==0){
+            address = "Город: " + post.getCity() + ", улица: " + post.getStreet();
+        }else if (post.getAppartment()==0) {
+            address = "Город: " + post.getCity()+ ", улица: " + post.getStreet()+ ", номер дома: " + post.getHouse();
+        }else address = "Город: " + post.getCity() + ", улица: " + post.getStreet() + ", номер дома: " + 
+                post.getHouse() + ", номер квартиры: " + post.getAppartment();
         
         return address;
     }
