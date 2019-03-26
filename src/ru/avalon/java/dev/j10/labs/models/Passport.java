@@ -41,6 +41,13 @@ public class Passport {
         this.lastName = lastName;
     }
     
+    /* TODO (Проверка №1) Большинство полей класса не используются, но они 
+        все равно должны быть инициализированы в конструкторе.
+        
+        Создать конструктор с полным набором полей, и все остальные 
+        конструкторы реализовать через него
+    */
+    
     public String setName(String name){
         this.name = name;
         return this.name;
@@ -61,6 +68,9 @@ public class Passport {
         return this.lastName;
     }
     
+    /* TODO (Проверка №1) Сделать сетеры стандартного вида
+     */
+    
     public String getName(){
         return name;
     }
@@ -78,6 +88,13 @@ public class Passport {
         
         return lastName.substring(0, 1);
     }
+    
+    /* TODO (Проверка №1) гетер getLastName должен возвращать второе имя целиком
+        а преобразования второго имени делается в методах, где это необходимо.
+    
+        Сделать геетеры стандартного вида
+        Сделать гетеры для всех полей класса
+    */
     
 
     /*

@@ -14,11 +14,17 @@ public class Main {
         Person smith = new Person();
         
         ivanov.initializePassport("Иван", "Иванов", "Иванович");
-        smith.initializePassport("John", "Smith", "", "Edward");
+        smith.initializePassport("John", "Smith", "");
         
         ivanov.initializeAddress("Saint-Petersburg");
         smith.initializeAddress("New-York");
         
+        /* TODO (Проверка №1) Поля класса необходимо инициализировать сразу в
+            конструкторе, переделать.
+        
+            Возникает ошибка при вводе только имени и фамилии.  ИСПРАВИТЬ!!!
+            Проверить все варианты возврата на выполнение!
+        */
         System.out.println(ivanov.getFullName());
         System.out.println(smith.getFullName());
         System.out.println(ivanov.getAddress());

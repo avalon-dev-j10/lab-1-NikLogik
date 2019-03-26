@@ -20,6 +20,9 @@ public class Person {
     Passport man;
     Address post;
     
+    /*
+        Сделать инкапсуляцию всех полей класса. Добавить комментарии полям и методам.
+    */
     public Person(){
         man = new Passport();
         post = new Address();
@@ -42,6 +45,10 @@ public class Person {
     public void initializeAddress(String address){
         post.setAddress(address);
     }
+    
+    /*
+        TODO (Проверка №1) Вместо инициализации используй констркторы классов.
+    */
     
     
     
